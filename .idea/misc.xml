@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/drawable/background_cricy.xml" value="0.276" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.2535" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.276" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.276" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/activity_free_trial.xml" value="0.2984375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/activity_login.xml" value="0.2984375" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/activity_resigiter.xml" value="0.3442325158946412" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/activity_test.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/item_kingofpost.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/item_newspost.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/layout/list_item.xml" value="0.290625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/DP568/app/src/main/res/menu/main_menu.xml" value="0.24791666666666667" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/DP568dApp/app/src/main/res/drawable/background_button.xml" value="0.185" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/DP568dApp/app/src/main/res/drawable/background_edittext.xml" value="0.185" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/DP568dApp/app/src/main/res/layout/activity_login.xml" value="0.264" />

@@ -14,8 +14,11 @@
         android:theme="@style/Theme.DP568dApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.ResigiterActivity"
+            android:name=".ui.activity.FreeTrialActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.activity.ResigiterActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".ui.activity.LoginActivity"
             android:exported="false" />
@@ -30,7 +33,7 @@
         </activity>
         <activity
             android:name=".ui.activity.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

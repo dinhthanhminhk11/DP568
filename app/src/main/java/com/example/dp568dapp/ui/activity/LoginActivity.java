@@ -26,16 +26,17 @@ public class LoginActivity extends AppCompatActivity {
     private TextView orThor;
     private TextView forgotpassword;
     private Button login;
+    private TextView textDangKi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.white_F6F7FE));
-
 
         logo = (ImageView) findViewById(R.id.logo);
         titleLogin = (TextView) findViewById(R.id.titleLogin);
@@ -47,10 +48,18 @@ public class LoginActivity extends AppCompatActivity {
         orThor = (TextView) findViewById(R.id.orThor);
         forgotpassword = (TextView) findViewById(R.id.forgotpassword);
         login = (Button) findViewById(R.id.login);
+        textDangKi = (TextView) findViewById(R.id.textDangKi);
 
-        forgotpassword.setOnClickListener(v -> {
+        textDangKi.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, ResigiterActivity.class));
         });
+        orThor.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, FreeTrialActivity.class));
+        });
+        login.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        });
+
 
     }
 }

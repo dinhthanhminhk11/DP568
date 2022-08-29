@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_round_home_24"
+        android:title="Trang chủ" />
+    <item
+        android:id="@+id/live"
+        android:enabled="true"
+        android:icon="@drawable/ic_round_live_tv_24"
+        android:title="Live" />
+    <item
+        android:id="@+id/bookmark"
+        android:enabled="true"
+        android:icon="@drawable/ic_round_bookmark_24"
+        android:title="Bookmark" />
+    <item
+        android:id="@+id/setting"
+        android:enabled="true"
+        android:icon="@drawable/ic_sharp_settings_24"
+        android:title="Setting" />
+</menu>

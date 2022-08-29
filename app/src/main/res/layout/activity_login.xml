@@ -12,7 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="170dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:src="@drawable/be_logo" />
 
     <TextView
@@ -114,6 +114,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="Hãy thử nó"
+        android:foreground="?android:attr/selectableItemBackground"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold" />
@@ -143,4 +144,29 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:backgroundTint="@null" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chưa có tài khoản ?"
+            android:textColor="@color/colorText" />
+
+        <TextView
+            android:id="@+id/textDangKi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text=" Đăng kí"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+    </LinearLayout>
 </RelativeLayout>

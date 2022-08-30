@@ -1,14 +1,21 @@
 package com.example.dp568dapp.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.dp568dapp.R;
+import com.example.dp568dapp.ui.live.LiveActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +32,16 @@ public class LiveFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private LinearLayout content1;
+    private ImageView image;
+    private TextView namePost;
+    private TextView kingOfPost;
+    private TextView count;
+    private LinearLayout content2;
+    private LinearLayout content3;
+    private LinearLayout content4;
+    private LinearLayout content5;
+    private LinearLayout content6;
 
     public LiveFragment() {
         // Required empty public constructor
@@ -62,5 +79,24 @@ public class LiveFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_live, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(view);
+    }
+
+    private void init(View view) {
+        content1 = (LinearLayout) view.findViewById(R.id.content1);
+        content2 = (LinearLayout) view.findViewById(R.id.content2);
+        content3 = (LinearLayout) view.findViewById(R.id.content3);
+        content4 = (LinearLayout) view.findViewById(R.id.content4);
+        content5 = (LinearLayout) view.findViewById(R.id.content5);
+        content6 = (LinearLayout) view.findViewById(R.id.content6);
+
+        content1.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
     }
 }

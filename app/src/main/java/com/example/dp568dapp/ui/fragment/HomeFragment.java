@@ -12,12 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.dp568dapp.R;
 import com.example.dp568dapp.model.Post;
 import com.example.dp568dapp.ui.adapter.KingOfPostAdapter;
 import com.example.dp568dapp.ui.adapter.PostAdapter;
+import com.example.dp568dapp.ui.adapter.PostFeedBackAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +41,14 @@ public class HomeFragment extends Fragment implements KingOfPostAdapter.UpdateRe
     private TextView tvSeeMoerGanNhat;
     private RecyclerView recyclerviewNews;
     private TextView tvSeeMoreListChinh;
+    private TextView textFeedback;
     private RecyclerView recyclerviewFeedBack;
     private List<String> listKingOfPost;
     private PostAdapter postAdapter;
+    private PostFeedBackAdapter postFeedBackAdapter;
+    private RelativeLayout contentTop;
+    private RelativeLayout contentBottom;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -92,8 +99,11 @@ public class HomeFragment extends Fragment implements KingOfPostAdapter.UpdateRe
 
     private void init(View view) {
         etSearch = (EditText) view.findViewById(R.id.etSearch);
+        contentTop = (RelativeLayout) view.findViewById(R.id.contentTop);
+        contentBottom = (RelativeLayout) view.findViewById(R.id.contentBottom);
         recyclerviewKingOf = (RecyclerView) view.findViewById(R.id.recyclerviewKingOf);
         tvSeeMoerGanNhat = (TextView) view.findViewById(R.id.tvSeeMoerGanNhat);
+        textFeedback = (TextView) view.findViewById(R.id.textFeedback);
         recyclerviewNews = (RecyclerView) view.findViewById(R.id.recyclerviewNews);
         tvSeeMoreListChinh = (TextView) view.findViewById(R.id.tvSeeMoreListChinh);
         recyclerviewFeedBack = (RecyclerView) view.findViewById(R.id.recyclerviewFeedBack);
@@ -111,13 +121,31 @@ public class HomeFragment extends Fragment implements KingOfPostAdapter.UpdateRe
 
     @Override
     public void callbacksChanged(int position, List<Post> list) {
-        postAdapter = new PostAdapter(list);
-        recyclerviewNews.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerviewNews.setAdapter(postAdapter);
+        if (position == 0) {
+            textFeedback.setText("Nhiều người xem");
+            contentTop.setVisibility(View.GONE);
+            postAdapter = new PostAdapter(list);
+            recyclerviewNews.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+            recyclerviewNews.setAdapter(postAdapter);
+        } else if (position == 1 || position == 2 || position == 3 || position == 4 || position == 5) {
+            contentTop.setVisibility(View.GONE);
+            postFeedBackAdapter = new PostFeedBackAdapter(list);
+            recyclerviewNews.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+            recyclerviewNews.setAdapter(postFeedBackAdapter);
+        }
     }
 
     @Override
     public void callbacksChanged2(int position, List<Post> list) {
+        if (list != null) {
+            contentBottom.setVisibility(View.VISIBLE);
+            postFeedBackAdapter = new PostFeedBackAdapter(list);
+            recyclerviewFeedBack.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+            recyclerviewFeedBack.setAdapter(postFeedBackAdapter);
+        } else {
+            contentBottom.setVisibility(View.GONE);
+            recyclerviewFeedBack.setVisibility(View.GONE);
+        }
 
     }
 }

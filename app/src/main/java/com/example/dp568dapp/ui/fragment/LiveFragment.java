@@ -98,5 +98,20 @@ public class LiveFragment extends Fragment {
         content1.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), LiveActivity.class));
         });
+        content2.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
+        content3.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
+        content4.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
+        content5.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
+        content6.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(), LiveActivity.class));
+        });
     }
 }

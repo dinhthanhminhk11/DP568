@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.live.LiveActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".ui.live.LiveActivity">
 
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintDimensionRatio="16:9">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <VideoView
+            android:id="@+id/videoVIew"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/raiden"/>
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginRight="10dp"
         android:id="@+id/comment_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -41,7 +41,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/show_more_btn"
-        android:text="Comment mới kìa má"
+        android:text="Có bình luận mới"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="15dp"

@@ -1,19 +1,27 @@
 package com.example.dp568dapp.ui.live;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.MediaController;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dp568dapp.R;
 import com.example.dp568dapp.databinding.ActivityLiveBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -48,13 +56,23 @@ public class LiveActivity extends AppCompatActivity
 
         mBinding = ActivityLiveBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
-
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.color_background));
         liveCommentBlockingQueue = new LinkedBlockingQueue<>();
-
+        String name[] = {"Với việc chiêu mộ thành công Antony", "5 từ khi đặt chân đến M.U.", "4/5 tân binh của họ có chung điểm", "ễ dàng nắm bắt được chiến t", "ng xây dựng lực lượng ở CLB mới", "M.U đã chi ra đến 170 triệu euro để chiều lòng Erik ten Hag"};
         liveCommentList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            liveCommentList.add(new Comment(i, "Bình luận " + i));
-            count++;
+        Random random = new Random();
+        int index = random.nextInt(name.length - 0) + 0;
+//        for (int i = 0; i < 10; i++) {
+//            liveCommentList.add(new Comment(i, "Bình luận " + name[index] + " " + i));
+//            count++;
+//        }
+        if(liveCommentList==null){
+            mBinding.showNewComment.setVisibility(View.GONE);
+        }else {
+            mBinding.showNewComment.setVisibility(View.VISIBLE);
         }
 
         liveCommentViewModel = new ViewModelProvider(this).get(LiveCommentViewModel.class);
@@ -79,8 +97,16 @@ public class LiveActivity extends AppCompatActivity
             }
         });
 
-        mBinding.showNewComment.setOnClickListener(v->{
-            mBinding.commentList.getLayoutManager().scrollToPosition(liveCommentList.size()-1);
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.videoplayback;
+        Uri uri = Uri.parse(videoPath);
+        mBinding.videoVIew.setVideoURI(uri);
+        MediaController mediaController = new MediaController(this);
+        mBinding.videoVIew.setMediaController(mediaController);
+        mediaController.setAnchorView(mBinding.videoVIew);
+        mBinding.videoVIew.start();
+        mBinding.commentList.getLayoutManager().scrollToPosition(liveCommentList.size() - 1);
+        mBinding.showNewComment.setOnClickListener(v -> {
+            mBinding.commentList.getLayoutManager().scrollToPosition(liveCommentList.size() - 1);
         });
         liveCommentPool = Executors.newScheduledThreadPool(3);
         liveCommentConsumer = new LiveCommentConsumer(liveCommentBlockingQueue, this);

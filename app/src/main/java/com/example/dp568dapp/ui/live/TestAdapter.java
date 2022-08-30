@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.dp568dapp.databinding.ItemCommentBinding;
 import com.example.dp568dapp.databinding.ItemLoadBeforeBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TestAdapter extends ListAdapter<Object, RecyclerView.ViewHolder> {
 
@@ -92,6 +94,19 @@ public class TestAdapter extends ListAdapter<Object, RecyclerView.ViewHolder> {
 
         public void setData(Comment comment) {
             binding.tvMes.setText(comment.content);
+            String name[] = {"Phong Max Official đã ghim", "QUYÊN BÍCH", "Trang Thu", "Thơm Trần", "Lê T.Nhật Lệ",
+                    "Dũng",
+                    "Mai Lan",
+                    "Quy Maingoc",
+                    "Chu Lan Anh",
+                    "Quách Trung Dương",
+                    "Lan Nguyễn",
+                    "Phạm Thùy Linh",
+                    "Đỗ Quân",
+            };
+            Random random = new Random();
+            int index = random.nextInt(name.length - 0) + 0;
+            binding.tvUser.setText(name[index]);
         }
     }
 
